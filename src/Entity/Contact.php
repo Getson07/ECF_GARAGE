@@ -5,15 +5,17 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: UuidType::NAME, unique:true)]
+    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    private ?string $id = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
@@ -44,7 +46,7 @@ class Contact
     #[ORM\ManyToOne(inversedBy: 'contacts')]
     private ?Client $client = null;
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }

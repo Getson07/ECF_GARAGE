@@ -15,17 +15,17 @@ class EquipmentOptions
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
+    #[ORM\Column(type: Types::JSON)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\NotNull()]
     private array $exterior_and_chassis = [];
 
-    #[ORM\Column(type: Types::ARRAY)]
+    #[ORM\Column(type: Types::JSON)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\NotNull()]
     private array $interior = [];
 
-    #[ORM\Column(type: Types::ARRAY)]
+    #[ORM\Column(type: Types::JSON)]
     private array $security = [];
 
     #[ORM\Column(length: 255, nullable: true)]

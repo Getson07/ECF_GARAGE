@@ -5,18 +5,20 @@ namespace App\Entity;
 use App\Repository\OpeningHoursRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: OpeningHoursRepository::class)]
 class OpeningHours
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: UuidType::NAME, unique:true)]
+    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    private ?string $id = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $day = null;
+    private ?string $day_of_week = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $opening_time = null;
@@ -34,19 +36,19 @@ class OpeningHours
     #[ORM\JoinColumn(nullable: false)]
     private ?User $scheduler = null;
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function getDay(): ?string
+    public function getDayOfWeek(): ?string
     {
-        return $this->day;
+        return $this->day_of_week;
     }
 
     public function setDay(string $day): static
     {
-        $this->day = $day;
+        $this->day_of_week = $day;
 
         return $this;
     }

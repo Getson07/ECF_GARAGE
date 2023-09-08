@@ -5,15 +5,17 @@ namespace App\Entity;
 use App\Repository\CarRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: UuidType::NAME, unique:true)]
+    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    private ?string $id = null;
 
     #[ORM\Column(length: 100)]
     #[ORM\Column(length: 100)]
@@ -21,7 +23,7 @@ class Car
     #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
+    #[ORM\Column(type: Types::JSON)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\NotNull(message: "Ce champ doit contenir au moins une image")]
     private array $images = [];
@@ -66,7 +68,7 @@ class Car
     #[ORM\OneToOne(mappedBy: 'related_car', cascade: ['persist', 'remove'])]
     private ?EquipmentOptions $equipmentOptions = null;
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
