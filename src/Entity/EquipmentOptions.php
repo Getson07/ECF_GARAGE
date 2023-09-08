@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EquipmentOptionsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EquipmentOptionsRepository::class)]
 class EquipmentOptions
@@ -15,9 +16,13 @@ class EquipmentOptions
     private ?int $id = null;
 
     #[ORM\Column(type: Types::ARRAY)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\NotNull()]
     private array $exterior_and_chassis = [];
 
     #[ORM\Column(type: Types::ARRAY)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\NotNull()]
     private array $interior = [];
 
     #[ORM\Column(type: Types::ARRAY)]

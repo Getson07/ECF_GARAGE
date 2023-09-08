@@ -6,6 +6,7 @@ use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
 class Client
@@ -16,12 +17,20 @@ class Client
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Email(mode: "strict")]
     private ?string $email = null;
 
     #[ORM\OneToMany(mappedBy: 'client', targetEntity: Contact::class)]

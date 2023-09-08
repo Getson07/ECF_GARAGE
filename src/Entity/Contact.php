@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
@@ -15,18 +16,29 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $sender_firstname = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $sender_lastname = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Email(mode: "strict")]
     private ?string $sender_email = null;
 
     #[ORM\Column(length: 255)]
     private ?string $subject = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\NoSuspiciousCharacters()]
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'contacts')]

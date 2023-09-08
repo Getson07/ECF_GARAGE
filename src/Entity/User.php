@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -19,6 +20,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Email(mode: "strict")]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -31,12 +34,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 20)]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 10)]
+    #[Assert\NotBlank(message: "Veuiller choisir une valeur s'il vous plaît")]
+    #[Assert\Choice(["Homme", "Femme"], multiple: false)]
     private ?string $gender = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

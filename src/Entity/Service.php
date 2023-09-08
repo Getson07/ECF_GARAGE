@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ServiceRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
 class Service
@@ -15,12 +16,19 @@ class Service
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:50, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\NoSuspiciousCharacters()]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\NotNull()]
     private ?string $image = null;
 
     #[ORM\ManyToOne]

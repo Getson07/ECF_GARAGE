@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CarRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
@@ -15,12 +16,19 @@ class Car
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::ARRAY)]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\NotNull(message: "Ce champ doit contenir au moins une image")]
     private array $images = [];
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
+    #[Assert\Positive(message: "Le prix doit être supérieur à 0")]
     private ?int $price = null;
 
     #[ORM\Column(length: 20, nullable: true)]

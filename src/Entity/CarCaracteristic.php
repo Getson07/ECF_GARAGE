@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CarCaracteristicRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CarCaracteristicRepository::class)]
 class CarCaracteristic
@@ -18,33 +19,46 @@ class CarCaracteristic
     private ?\DateTimeInterface $year_of_launch = null;
 
     #[ORM\Column(length: 50, nullable: true)]
+    #[Assert\Length(min: 3, max: 50, minMessage: "Pas moins de {{ limit }} caractères", maxMessage: "Pas plus de {{ limit }} caractères")]
     private ?string $origin = null;
 
     #[ORM\Column(length: 100)]
     private ?string $technichal_control = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: "Veuillez choisir une valeur")]
+    #[Assert\Choice(["OUI", "NON"], multiple: false)]
     private ?bool $first_hand = null;
 
     #[ORM\Column(length: 20)]
     private ?string $energy = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: "Veuillez saisir une valeur")]
     private ?string $gearbox = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(message: "Veuillez saisir une valeur")]
     private ?string $color = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Assert\NotBlank(message: "Veuillez saisir une valeur")]
+    #[Assert\Length(min: 2, minMessage: "Au moins deux portes requis")]
+    #[Assert\Positive(message: "Valeur entrée < 0")]
     private ?int $number_of_doors = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Assert\NotBlank(message: "Veuillez saisir une valeur")]
+    #[Assert\Length(min: 1, minMessage: "Au moins 1 siège requis")]
+    #[Assert\Positive(message: "Valeur entrée < 0")]
     private ?int $number_of_seats = null;
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
     private ?int $length = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\NotBlank(message: "Veuillez saisir une valeur")]
+    #[Assert\Positive(message: "Valeur entrée < 0")]
     private ?int $trunk_volume = null;
 
     #[ORM\OneToOne(inversedBy: 'characteristics', cascade: ['persist', 'remove'])]
