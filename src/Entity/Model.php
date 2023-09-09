@@ -12,16 +12,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Model
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue(strategy:"AUTO")]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(length: 100)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(inversedBy: 'models')]
+    #[ORM\ManyToOne(inversedBy: 'models', targetEntity: Brand::class, cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Brand $brand = null;
 
@@ -33,6 +33,10 @@ class Model
         $this->cars = new ArrayCollection();
     }
 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
     public function getId(): ?int
     {
         return $this->id;

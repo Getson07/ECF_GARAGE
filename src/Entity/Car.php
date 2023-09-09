@@ -18,7 +18,6 @@ class Car
     private ?string $id = null;
 
     #[ORM\Column(length: 100)]
-    #[ORM\Column(length: 100)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
     private ?string $name = null;

@@ -53,13 +53,13 @@ class CarCaracteristic
     #[Assert\Positive(message: "Valeur entrée < 0")]
     private ?int $number_of_seats = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $length = null;
+    #[ORM\Column(nullable: true)]
+    private ?string $length = null;
 
     #[ORM\Column(nullable: true)]
     #[Assert\NotBlank(message: "Veuillez saisir une valeur")]
     #[Assert\Positive(message: "Valeur entrée < 0")]
-    private ?int $trunk_volume = null;
+    private ?string $trunk_volume = null;
 
     #[ORM\OneToOne(inversedBy: 'characteristics', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
@@ -178,24 +178,24 @@ class CarCaracteristic
         return $this;
     }
 
-    public function getLength(): ?int
+    public function getLength(): ?string
     {
         return $this->length;
     }
 
-    public function setLength(?int $length): static
+    public function setLength(?string $length): static
     {
         $this->length = $length;
 
         return $this;
     }
 
-    public function getTrunkVolume(): ?int
+    public function getTrunkVolume(): ?string
     {
         return $this->trunk_volume;
     }
 
-    public function setTrunkVolume(?int $trunk_volume): static
+    public function setTrunkVolume(?string $trunk_volume): static
     {
         $this->trunk_volume = $trunk_volume;
 

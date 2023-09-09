@@ -21,7 +21,7 @@ class Brand
     #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Model::class)]
+    #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Model::class, cascade: ['persist'])]
     private Collection $models;
 
     public function __construct()
