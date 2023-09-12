@@ -15,4 +15,10 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    #[Route('/registration', name: 'app_registration')]
+    public function registration(): Response
+    {
+        return $this->redirectToRoute('app_user_new');
+    }
 }

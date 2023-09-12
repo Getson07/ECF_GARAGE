@@ -20,8 +20,9 @@
 		{% for message in app.flashes('already_connect') %}
 			<div class="alert alert-success">{{ message }}</div>
 		{% endfor %}
-		{% block body %}{% endblock %}
-		{% include "partials/footer.html.twig" %}
+		<main class="container"> {% block body %}{% endblock %}
+			</main>
+			{% include "partials/footer.html.twig" %}
 
-	</body>
-</html>
+		</body>
+	</html>
