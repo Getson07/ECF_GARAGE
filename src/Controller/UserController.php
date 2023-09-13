@@ -35,7 +35,8 @@ class UserController extends AbstractController
             $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
             $userRepo->save($user,true);
 
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash('connect', 'Compte emplyé créé avec succès');
+            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }else if($form->isSubmitted() && !$form->isValid()) dd("Formulaire non valid", $form);
 
         return $this->render('user/new.html.twig', [
