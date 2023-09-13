@@ -1,0 +1,12 @@
+{{ form_start(form) }}
+{{ form_row(form.email) }}
+{{ form_row(form.password) }}
+{# {{ form_row(form.password.second) }} #}
+{{ form_row(form.firstname) }}
+{{ form_row(form.lastname) }}
+{{ form_row(form.gender) }}
+{{ form_row(form.date_of_birth) }}
+{{ form_row(form.roles) }}
+
+<button class="btn" type="submit">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

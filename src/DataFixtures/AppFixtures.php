@@ -9,14 +9,10 @@ use App\Entity\EquipmentOptions;
 use App\Entity\Model;
 use App\Entity\Service;
 use App\Entity\User;
-use App\Repository\ModelRepository;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
-
-use function Symfony\Component\Clock\now;
 
 class AppFixtures extends Fixture
 {

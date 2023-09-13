@@ -26,7 +26,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Email(mode: "strict")]
     private ?string $email = null;
 
-    #[ORM\Column(type: Types::JSON)]
+    // #[ORM\Column(type: Types::JSON)]
+    #[ORM\Column()]
     private array $roles = [];
 
     /**
@@ -40,13 +41,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Length(min:3, max:20, minMessage:"Le prénom doit faire plus de {{ limit }} caratères", maxMessage: "Le nom de marquage doit faire moins de {{ limit }} caratères")]
-    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
+    #[Assert\Regex(pattern:'/[^[:punct:]]/', match: true, message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Length(min:3, max:20, minMessage:"Le nom doit faire plus de {{ limit }} caratères", maxMessage: "Le nom de marquage doit faire moins de {{ limit }} caratères")]
-    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
+    #[Assert\Regex(pattern:'/[^[:punct:]]/', match: true, message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 10)]
