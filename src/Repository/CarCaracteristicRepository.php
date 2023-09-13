@@ -21,6 +21,24 @@ class CarCaracteristicRepository extends ServiceEntityRepository
         parent::__construct($registry, CarCaracteristic::class);
     }
 
+    public function save(CarCaracteristic $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(CarCaracteristic $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
 //    /**
 //     * @return CarCaracteristic[] Returns an array of CarCaracteristic objects
 //     */

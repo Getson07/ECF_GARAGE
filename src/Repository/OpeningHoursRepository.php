@@ -21,6 +21,23 @@ class OpeningHoursRepository extends ServiceEntityRepository
         parent::__construct($registry, OpeningHours::class);
     }
 
+    public function save(OpeningHours $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(OpeningHours $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 //    /**
 //     * @return OpeningHours[] Returns an array of OpeningHours objects
 //     */

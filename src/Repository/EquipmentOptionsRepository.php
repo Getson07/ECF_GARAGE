@@ -21,6 +21,24 @@ class EquipmentOptionsRepository extends ServiceEntityRepository
         parent::__construct($registry, EquipmentOptions::class);
     }
 
+    public function save(EquipmentOptions $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(EquipmentOptions $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
 //    /**
 //     * @return EquipmentOptions[] Returns an array of EquipmentOptions objects
 //     */
