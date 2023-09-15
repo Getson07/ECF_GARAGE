@@ -24,13 +24,11 @@ class Service
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
-    #[Assert\Length(min:50, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
+    #[Assert\Length(min:50, minMessage:"La description doit faire plus de {{ limit }} caratères")]
     #[Assert\NoSuspiciousCharacters()]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
-    #[Assert\NotNull()]
     private ?string $image = null;
 
     #[ORM\ManyToOne]

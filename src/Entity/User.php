@@ -56,6 +56,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $gender = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\Range(
+        min: 'first day of January 1950',
+        max: 'first day of January next year',
+    )]
     private ?\DateTimeInterface $date_of_birth = null;
 
     #[ORM\OneToMany(mappedBy: 'poster', targetEntity: Car::class)]
@@ -246,5 +250,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->firstname.' '.$this->lastname;
     }
 }
