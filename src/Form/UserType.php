@@ -55,6 +55,8 @@ class UserType extends AbstractType
             ])
             ->add('date_of_birth', DateType::class, [
                 'label' => 'Date de naissance',
+                'widget' => 'choice',
+                'years' => range(date('Y')-10, date('Y')-120, -1),
             ])
         ;
         $builder->get('roles')->addModelTransformer(new CallbackTransformer(

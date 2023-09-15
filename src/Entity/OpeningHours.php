@@ -17,7 +17,7 @@ class OpeningHours
     #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
     private ?string $id = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 20, unique: true)]
     private ?string $day_of_week = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
@@ -46,7 +46,7 @@ class OpeningHours
         return $this->day_of_week;
     }
 
-    public function setDay(string $day): static
+    public function setDayOfWeek(string $day): static
     {
         $this->day_of_week = $day;
 
@@ -77,12 +77,12 @@ class OpeningHours
         return $this;
     }
 
-    public function getStartBrakTime(): ?\DateTimeInterface
+    public function getStartBreakTime(): ?\DateTimeInterface
     {
         return $this->start_break_time;
     }
 
-    public function setStartBrakTime(\DateTimeInterface $start_break_time): static
+    public function setStartBreakTime(\DateTimeInterface $start_break_time): static
     {
         $this->start_break_time = $start_break_time;
 
