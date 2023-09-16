@@ -101,7 +101,7 @@ class AppFixtures extends Fixture
         $cars = [
             'FIAT_500' => [
                 'name' => 'FIAT 500 II 1.4 16V 100 LOUNGE',
-                'images' => ['fiat500_1.jpg', 'fiat500_2.jpg', 'fiat500_3.jpg', 'fiat500_4.jpg', 'fiat500_5.jpg'],
+                'images' => ["fiat_500_ii_14_16v_100_lounge_1.jpg","fiat_500_ii_14_16v_100_lounge_2.jpg","fiat_500_ii_14_16v_100_lounge_3.jpg","fiat_500_ii_14_16v_100_lounge_4.jpg","fiat_500_ii_14_16v_100_lounge_5.jpg"],
                 'price' => '7 990',
                 'fiscal_power' => '6 CV',
                 'engine_power' => '(DIN) 101 ch - (moteur) 74 kW Consommation',
@@ -140,7 +140,7 @@ class AppFixtures extends Fixture
             ],
             'VOLKSWAGEN_TROC' => [
                 'name' => 'VOLKSWAGEN T-ROC 2.0 TSI 190 CARAT 4MOTION DSG7',
-                'images' => ['volks1.jpg', 'volks2.jpg', 'volks3.jpg', 'volks4.jpg', 'volks5.jpg'],
+                'images' => ["volkswagen_troc_20_tsi_190_carat_4motion_dsg7_1.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_2.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_3.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_4.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_5.jpg"],
                 'price' => '27 990',
                 'fiscal_power' => '11 CV',
                 'engine_power' => '(DIN) 190 ch - (moteur) 140 kW',
@@ -183,7 +183,7 @@ class AppFixtures extends Fixture
             ],
             'AUDI_S1' => [
                 'name' => 'AUDI S1 SPORTBACK 2.0 TFSI 231',
-                'images' => ['audiS1_1.jpg', 'audiS2_1.jpg', 'audiS3_1.jpg','audiS4_1.jpg', 'audiS5_1.jpg'],
+                'images' => ["audi_s1_sportback_20_tfsi_231_1.jpg","audi_s1_sportback_20_tfsi_231_2.jpg","audi_s1_sportback_20_tfsi_231_3.jpg","audi_s1_sportback_20_tfsi_231_4.jpg","audi_s1_sportback_20_tfsi_231_5.jpg"],
                 'price' => '21 990',
                 'fiscal_power' => '14 CV',
                 'engine_power' => '(DIN) 231 ch - (moteur) 170 kW',
@@ -227,7 +227,7 @@ class AppFixtures extends Fixture
             ],
             'PORSCHE_CAYENNE' => [
                 'name' => 'PORSCHE CAYENNE III COUPE 3.0 V6 340',
-                'images' => ['porshe1.jpg', 'porshe2.jpg', 'porshe3.jpg', 'porshe4.jpg', 'porshe5.jpg'],
+                'images' => ["porsche_cayenne_iii_coupe_30_v6_340_1.jpg","porsche_cayenne_iii_coupe_30_v6_340_2.jpg","porsche_cayenne_iii_coupe_30_v6_340_3.jpg","porsche_cayenne_iii_coupe_30_v6_340_4.jpg","porsche_cayenne_iii_coupe_30_v6_340_5.jpg"],
                 'price' => '94 990',
                 'fiscal_power' => '23 CV',
                 'engine_power' => '(DIN) 340 ch - (moteur) 250 kW',
@@ -270,7 +270,7 @@ class AppFixtures extends Fixture
             ],
             'NISSAN_QASHQAI' => [
                 'name' => 'NISSAN QASHQAI II 1.2 DIG-T 115 N-CONNECTA',
-                'images' => ['nissan2.jpg', 'nissan3.jpg', 'nissan4.jpg', 'nissan1.jpg', 'nissan5.jpg'],
+                'images' => ["nissan_qashqai_ii_12_digt_115_nconnecta_2.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_3.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_4.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_1.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_5.jpg"],
                 'price' => '14 490',
                 'fiscal_power' => '6 CV',
                 'engine_power' => '(DIN) 116 ch - (moteur) 85 kW',
@@ -313,7 +313,7 @@ class AppFixtures extends Fixture
             ],
             'AUDI_Q3' => [
                 'name' => 'AUDI Q3 (2) 2.0 TDI 150 S LINE QUATTRO S TRONIC',
-                'images' => ['audiq3_1.jpg', 'audiq3_2.jpg', 'audiq3_3.jpg', 'audiq3_4.jpg', 'audiq3_5.jpg'],
+                'images' => ["audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_1.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_2.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_3.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_4.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_5.jpg"],
                 'price' => '21 000',
                 'fiscal_power' => '8 CV',
                 'engine_power' => '(DIN) 150 ch - (moteur) 110 kW',

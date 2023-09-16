@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\PasswordStrength(minScore: 2)]
     private ?string $password = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 100)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Length(min:3, max:20, minMessage:"Le prénom doit faire plus de {{ limit }} caratères", maxMessage: "Le nom de marquage doit faire moins de {{ limit }} caratères")]
     #[Assert\Regex(pattern:'/[^[:punct:]]/', match: true, message:"Pour les nom composés veuillez les collés avec majuscule")]

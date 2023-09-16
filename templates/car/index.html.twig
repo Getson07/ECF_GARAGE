@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Car index
+{% endblock %}
+
+{% block body %}
+	<h1>Car index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Images</th>
+				<th>Price</th>
+				<th>Fiscal_power</th>
+				<th>Engine_power</th>
+				<th>Euro_standard</th>
+				<th>Crit_air</th>
+				<th>Combined_consumption</th>
+				<th>Co2_emission</th>
+				<th>Posted_at</th>
+				<th>model</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for car in cars %}
+				<tr>
+					<td>{{ car.id }}</td>
+					<td>{{ car.name }}</td>
+					<td>{{ car.images ? car.images|json_encode : '' }}
+						<br>
+						{% for image in car.images %}
+							{# <span>{{ ['/Images/Vehicles',car.model.brand,image]|join('/')}}</span><br> #}
+							<img src="{{ ['/Images/Vehicles',car.model.brand,image]|join('/') }}" alt="{{image}}" width="200" height="200">
+						{% endfor %}
+					</td>
+					<td>{{ car.price }}</td>
+					<td>{{ car.fiscalPower }}</td>
+					<td>{{ car.enginePower }}</td>
+					<td>{{ car.euroStandard }}</td>
+					<td>{{ car.critAir }}</td>
+					<td>{{ car.combinedConsumption }}</td>
+					<td>{{ car.co2Emission }}</td>
+					<td>{{ car.postedAt ? car.postedAt|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ car.model }}</td>
+					<td>
+						<a href="{{ path('app_car_show', {'id': car.id}) }}">show</a>
+						<a href="{{ path('app_car_edit', {'id': car.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="12">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_car_new') }}">Create new</a>
+{% endblock %}

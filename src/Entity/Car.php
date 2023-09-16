@@ -23,8 +23,6 @@ class Car
     private ?string $name = null;
 
     #[ORM\Column(type: Types::JSON)]
-    #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
-    #[Assert\NotNull(message: "Ce champ doit contenir au moins une image")]
     private array $images = [];
 
     #[ORM\Column]
@@ -32,10 +30,10 @@ class Car
     #[Assert\Positive(message: "Le prix doit être supérieur à 0")]
     private ?int $price = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(nullable: true)]
     private ?string $fiscal_power = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column()]
     private ?string $engine_power = null;
 
     #[ORM\Column(length: 50, nullable: true)]
@@ -248,5 +246,14 @@ class Car
         $this->equipmentOptions = $equipmentOptions;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->model.' '.$this->model->getBrand();
+    }
+    public function getFileName():string
+    {
+        return strtolower( preg_replace('/[^\w]*\s*/', '', $this->getName() ));
     }
 }
