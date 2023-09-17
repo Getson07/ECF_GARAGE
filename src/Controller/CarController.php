@@ -12,6 +12,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Constraints\Length;
 
 #[Route('/car')]
@@ -38,6 +39,7 @@ class CarController extends AbstractController
         return $carImages;
     }
 
+    #[IsGranted('ROLE_EMPLOYE')]
     #[Route('/new', name: 'app_car_new', methods: ['GET', 'POST'])]
     public function new(Request $request,  #[Autowire('%photo_dir%')] string $photoDir, CarRepository $carRepo): Response
     {
@@ -74,6 +76,7 @@ class CarController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_EMPLOYE')]
     #[Route('/{id}/edit', name: 'app_car_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Car $car, CarRepository $carRepo): Response
     {
@@ -92,6 +95,7 @@ class CarController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_EMPLOYE')]
     #[Route('/{id}', name: 'app_car_delete', methods: ['POST'])]
     public function delete(Request $request, Car $car, CarRepository $carRepo): Response
     {

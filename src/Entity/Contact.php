@@ -20,13 +20,13 @@ class Contact
     #[ORM\Column(length: 100)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
-    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
+    #[Assert\Regex('/[^[:punct:]]/', match: true, message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $sender_firstname = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Length(min:3, minMessage:"Le nom de marquage doit faire plus de {{ limit }} caratères")]
-    #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
+    #[Assert\Regex('/[^[:punct:]]/', match: true, message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $sender_lastname = null;
 
     #[ORM\Column(length: 100)]
@@ -43,7 +43,7 @@ class Contact
     #[Assert\NoSuspiciousCharacters()]
     private ?string $message = null;
 
-    #[ORM\ManyToOne(inversedBy: 'contacts')]
+    #[ORM\ManyToOne(inversedBy: 'contacts', cascade:['persist'])]
     private ?Client $client = null;
 
     public function getId(): ?string

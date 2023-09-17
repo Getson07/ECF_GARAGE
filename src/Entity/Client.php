@@ -30,7 +30,7 @@ class Client
     #[Assert\Regex("/[^[:punct:]]/g", message:"Pour les nom composés veuillez les collés avec majuscule")]
     private ?string $lastname = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 100, unique: true)]
     #[Assert\NotBlank(message: "Veuiller entrer une valeur s'il vous plaît")]
     #[Assert\Email(mode: "strict")]
     private ?string $email = null;
@@ -146,5 +146,10 @@ class Client
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->firstname.' '.$this->lastname;
     }
 }
