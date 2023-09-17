@@ -25,10 +25,13 @@ class Comment
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?CLient $client = null;
+    private ?Client $client = null;
 
     #[ORM\ManyToOne]
     private ?User $user = null;
+
+    #[ORM\Column(options: ['default'=> false])]
+    private ?bool $isValidate = null;
 
     public function getId(): ?int
     {
@@ -79,6 +82,18 @@ class Comment
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function isIsValidate(): ?bool
+    {
+        return $this->isValidate;
+    }
+
+    public function setIsValidate(bool $isValidate): static
+    {
+        $this->isValidate = $isValidate;
 
         return $this;
     }

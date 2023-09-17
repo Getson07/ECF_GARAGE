@@ -67,7 +67,7 @@ class ContactController extends AbstractController
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
             ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
+            ->text('Nouveau contact enregistré')
             ->html('<p>See Twig integration for better HTML integration!</p>');
 
         $mailer->send($email);
