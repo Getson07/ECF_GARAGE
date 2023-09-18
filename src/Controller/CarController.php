@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Car;
 use App\Form\CarType;
+use App\Form\FilterType;
 use App\Repository\CarRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,6 +25,12 @@ class CarController extends AbstractController
         return $this->render('car/index.html.twig', [
             'cars' => $carRepository->findAll(),
         ]);
+    }
+    #[Route('/filtered', name: 'app_car_filter', methods: ['GET'])]
+    public function filter(CarRepository $carRepository): Response
+    {
+        $form = $this->createForm(FilterType::class);
+        return $this->render('car/filter.html.twig', [ 'form' => $form->createView()]);
     }
     public function saveImage(array $imageFiles, string $brand, string $photoDir, string $filename, string $serie='' ) : array{
         $carImages = [];
