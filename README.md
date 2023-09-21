@@ -23,3 +23,5 @@ Mettre client en cascade persiste dans Contact
    Mot de passe: v.p@rrot280
 5. Seul le compte administrateur vous permettra de créer des comptes employés
 6. L'ensemble des fonctionnalités demandées peuvent être testés (certaines en inscrivant le nom de la route dans l'url)
+
+Seule la partie graphique de la page d'accueil a pu être rédigée
