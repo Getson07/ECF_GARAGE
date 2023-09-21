@@ -6,28 +6,28 @@
 		<div class="collaspse navbar-collapse" id="navbarNavDropdown">
 			<ul class="list-inline  m-0 w-100 d-flex justify-content-around align-items-center">
 				<li class="nav-item">
-					<a href="path('app_main')}}" class="nav-link">Prestations</a>
+					<a href="{{ path('app_service_index')}}" class="nav-link">Prestations</a>
 				</li>
 				<li class="nav-item">
-					<a href="path('app_dish_index')}}" class="nav-link">Garages</a>
+					<a href="{{ path('app_home')}}" class="nav-link">Garages</a>
 				</li>
 				<li
 					class="nav-item">{# <a href="path('app_menu_index')}}" class="nav-link">Menu</a> #}
 				</li>
 				<li class="list-inline-item align-self-center">
 					<h3 class="navbar-brand">
-						<a href="path('app_main')}}" class="">Garage V. Parrot</a>
+						<a href="{{ path('app_home')}}" class="">Garage V. Parrot</a>
 					</h3>
 				</li>
 				<li class="list-inline-item">
-					<a href="path('app_reserved_table_new')}}" class="nav-link">Voitures
+					<a href="{{ path('app_car_index')}}" class="nav-link">Voitures
 						<br>
 						<em>d'occasion</em>
 					</a>
 				</li>
 				{% if not app.user %}
 					<li class="nav-item">
-						<a href="path('app_client_new')}}" class="nav-link">Avis</a>
+						<a href="{{ path('app_comment_index')}}" class="nav-link">Avis</a>
 					</li>
 					<li class="nav-item">
 						<a href="{{ path('app_login') }}" class="nav-link">Connexion</a>

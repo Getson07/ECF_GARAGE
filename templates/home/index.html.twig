@@ -1,20 +1,108 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello HomeController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="row my-2">
+		<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active" data-bs-interval="10000">
+					<img src="Images/garage1.jpg" class="d-block w-100 home-img" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>First slide label</h5>
+						<p>Some representative placeholder content for the first slide.</p>
+					</div>
+				</div>
+				<div class="carousel-item" data-bs-interval="2000">
+					<img src="Images/garage2.jpg" class="d-block w-100 home-img" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Second slide label</h5>
+						<p>Some representative placeholder content for the second slide.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="Images/garage3.jpg" class="d-block w-100 home-img" alt="Images/garage1.jpg">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Third slide label</h5>
+						<p>Some representative placeholder content for the third slide.</p>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</div>
+	<div class="row row-cols-1 row-cols-md-3 g-4">
+		<div class="col">
+			<div class="card h-100">
+				<div class="w-100 d-flex justify-content-center">
+					<img src="..." class="card-img-top services-logo" alt="...">
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">POURQUOI NOUS CHOISIR?</h5>
+					<hr>
+					<p class="card-text">Moderne et parfaitement équipé, le Garage Bellone assure le diagnostic et la réparation toutes marques de vos véhicules. Tous nos services sont délivrés par des mécaniciens hautement qualifiés.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card h-100">
+				<div class="w-100 d-flex justify-content-center">
+					<img src="Images/avatar-chat.svg" class="card-img-top services-logo" alt="...">
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">UN GARAGE A VOTRE ECOUTE</h5>
+					<hr>
+					<p class="card-text">Dans notre garage, patrons et collaborateurs ont un contact direct avec les clients, toujours plus nombreux.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card h-100">
+				<div class="w-100 d-flex justify-content-center">
+					<img src="Images/setting.svg" class="card-img-top services-logo" alt="...">
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">EQUIPEMENT MODERNE</h5>
+					<p class="card-text">Notre garage est équipé de matériel moderne haut de gamme, afin de vous proposer le meilleur diagnostic possible de votre véhicule.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card h-100">
+				<div class="w-100 d-flex justify-content-center">
+					<img src="Images/truck.svg" class="card-img-top services-logo" alt="...">
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">MECANIQUE TOUTE MARQUE</h5>
+					<p class="card-text">Nous intervenons sur tous types de travaux, sur de l’entretien classique aussi bien que sur de la mécanique lourde, comme remplacement ou réfection d’un moteur.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card h-100">
+				<div class="w-100 d-flex justify-content-center">
+					<img src="Images/race-car.svg" class="card-img-top services-logo" alt="...">
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">NOS VEHICULES D’OCCASIONS</h5>
+					<p class="card-text">Nous proposons aussi une large offre de véhicules d'occasion à la vente, n'hesitez pas à consulter nos anonces en cliquant sur le bouton ci-dessous.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/egnon/Downloads/STUDI/ECF/ecf_garage/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/egnon/Downloads/STUDI/ECF/ecf_garage/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}
