@@ -64,5 +64,12 @@ input {
     margin: 0;
   }
 }
+.home-img {
+  height: 350px;
+}
+.services-logo {
+  width: 162px;
+  height: 130px;
+}
 @import "./header.scss";
 @import "./footer.scss";
