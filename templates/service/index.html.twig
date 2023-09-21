@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Service index
+{% endblock %}
+
+{% block body %}
+	<h1>Service index</h1>
+
+	<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+		{% for service in services %}
+			<div class="col">
+				<div class="card h-100">
+					<img src="{{ ['/Images/Services',service.Image]|join('/') }}" class="card-img-top" alt="{{service.image}}">
+					<div class="card-body">
+						<div class="d-flex justify-content-center">
+							<h5 class="card-title">{{ service.title }}</h5>
+							<a href="{{path('app_service_show', {'id': service.id})}}" class="stretched-link"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<p colspan="7">Aucun plat pour l'instant</p>
+		{% endfor %}
+	</div>
+
+	<a href="{{ path('app_service_new') }}">Create new</a>
+{% endblock %}

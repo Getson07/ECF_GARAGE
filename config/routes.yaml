@@ -1,5 +1,44 @@
+app_user:
+  path: /user
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: "app_registration"
+    page: "index"
+    version: "current"
+    permanent: true
+    keepQueryParams: true
+    keepRequestMethod: true
+    # add this to remove all original route attributes when redirecting
+    ignoreAttributes: true
+
+app_service:
+  path: /service
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: "app_services"
+    page: "index"
+    version: "current"
+    permanent: true
+    keepQueryParams: true
+    keepRequestMethod: true
+    # add this to remove all original route attributes when redirecting
+    ignoreAttributes: true
+
+app_opening_hours:
+  path: /opening
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: "app_schedules"
+    page: "index"
+    version: "current"
+    permanent: true
+    keepQueryParams: true
+    keepRequestMethod: true
+    # add this to remove all original route attributes when redirecting
+    ignoreAttributes: false
+
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute

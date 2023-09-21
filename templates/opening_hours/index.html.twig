@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OpeningHours index{% endblock %}
+
+{% block body %}
+    <h1>OpeningHours index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Day_of_week</th>
+                <th>Opening_time</th>
+                <th>Closing_time</th>
+                <th>Start_break_time</th>
+                <th>End_of_break</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for opening_hour in opening_hours %}
+            <tr>
+                <td>{{ opening_hour.id }}</td>
+                <td>{{ opening_hour.dayOfWeek }}</td>
+                <td>{{ opening_hour.openingTime ? opening_hour.openingTime|date('H:i:s') : '' }}</td>
+                <td>{{ opening_hour.closingTime ? opening_hour.closingTime|date('H:i:s') : '' }}</td>
+                <td>{{ opening_hour.startBreakTime ? opening_hour.startBreakTime|date('H:i:s') : '' }}</td>
+                <td>{{ opening_hour.endOfBreak ? opening_hour.endOfBreak|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_opening_hours_show', {'id': opening_hour.id}) }}">show</a>
+                    <a href="{{ path('app_opening_hours_edit', {'id': opening_hour.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_opening_hours_new') }}">Create new</a>
+{% endblock %}

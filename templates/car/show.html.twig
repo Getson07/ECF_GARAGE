@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Car{% endblock %}
+
+{% block body %}
+    <h1>Car</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ car.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ car.name }}</td>
+            </tr>
+            <tr>
+                <th>Images</th>
+                <td>{{ car.images ? car.images|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ car.price }}</td>
+            </tr>
+            <tr>
+                <th>Fiscal_power</th>
+                <td>{{ car.fiscalPower }}</td>
+            </tr>
+            <tr>
+                <th>Engine_power</th>
+                <td>{{ car.enginePower }}</td>
+            </tr>
+            <tr>
+                <th>Euro_standard</th>
+                <td>{{ car.euroStandard }}</td>
+            </tr>
+            <tr>
+                <th>Crit_air</th>
+                <td>{{ car.critAir }}</td>
+            </tr>
+            <tr>
+                <th>Combined_consumption</th>
+                <td>{{ car.combinedConsumption }}</td>
+            </tr>
+            <tr>
+                <th>Co2_emission</th>
+                <td>{{ car.co2Emission }}</td>
+            </tr>
+            <tr>
+                <th>Posted_at</th>
+                <td>{{ car.postedAt ? car.postedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_car_index') }}">back to list</a>
+
+    <a href="{{ path('app_car_edit', {'id': car.id}) }}">edit</a>
+
+    {{ include('car/_delete_form.html.twig') }}
+{% endblock %}
