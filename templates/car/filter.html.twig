@@ -1,8 +1,48 @@
-{% extends "base.html.twig" %}
-
-{% block body %}
+<div class="row" id="filter">
 	{{ form_start(form) }}
-	{{ form_widget(form) }}
-	<button class="btn">{{ button_label|default('Save') }}</button>
+	<div class="col-12 my-1">
+		<div class="dropdown" id="brands-dropdown">
+			<input type="text" class="form-control" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" placeholder="Marque">
+			<ul class="dropdown-menu" id="brands-input">
+				{% for child in form.brands %}
+					<li>{{ form_label(child) }}
+						{{ form_widget(child) }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{# {{form_row(form.brands)}} #}
+	</div>
+	<div class="col-12 my-1" id='filter-models'>
+		<div class="dropdown" id="models-dropdown">
+			<input type="text" class="form-control" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" placeholder="Models">
+			<ul class="dropdown-menu" id="models-input">
+				{% for child in form.models %}
+					<li>{{ form_label(child) }}
+						{{ form_widget(child) }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% if form.manyBrands is defined %}
+			{{form_row(form.manyBrands)}}
+		{% endif %}
+
+	</div>
+	<div class="col-12 my-1">
+		<h5>Année de mise en Circulation</h5>
+		{{ form_widget(form.minYear, {'attr':{'class':'my-1'}})}}
+		{{ form_widget(form.maxYear, {'attr':{'class':'my-1'}})}}
+	</div>
+	<div class="col-12 my-1" id="energies-input">
+		{{form_row(form.energy)}}
+	</div>
+	<div class="col-12 my-1">
+		{{form_row(form.gearbox)}}
+	</div>
+	<div class="col-12 my-1">
+		<h5>Prix</h5>
+		{{ form_widget(form.minPrice, {'attr':{'class':'my-1'}})}}
+		{{ form_widget(form.maxPrice, {'attr':{'class':'my-1'}})}}
+	</div>
+	<button class="btn">{{ button_label|default('Rechercher') }}</button>
 	{{ form_end(form) }}
-{% endblock %}
+</div>
