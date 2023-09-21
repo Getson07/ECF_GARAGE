@@ -250,7 +250,7 @@ class Car
 
     public function __toString()
     {
-        return $this->model.' '.$this->model->getBrand();
+        return $this->model->getBrand().' '.$this->model;
     }
     public function getFileName():string
     {

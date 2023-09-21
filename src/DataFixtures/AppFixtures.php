@@ -102,7 +102,7 @@ class AppFixtures extends Fixture
             'FIAT_500' => [
                 'name' => 'FIAT 500 II 1.4 16V 100 LOUNGE',
                 'images' => ["fiat_500_ii_14_16v_100_lounge_1.jpg","fiat_500_ii_14_16v_100_lounge_2.jpg","fiat_500_ii_14_16v_100_lounge_3.jpg","fiat_500_ii_14_16v_100_lounge_4.jpg","fiat_500_ii_14_16v_100_lounge_5.jpg"],
-                'price' => '7 990',
+                'price' => '7990',
                 'fiscal_power' => '6 CV',
                 'engine_power' => '(DIN) 101 ch - (moteur) 74 kW Consommation',
                 'euro_standard' => 'EURO4',
@@ -141,7 +141,7 @@ class AppFixtures extends Fixture
             'VOLKSWAGEN_TROC' => [
                 'name' => 'VOLKSWAGEN T-ROC 2.0 TSI 190 CARAT 4MOTION DSG7',
                 'images' => ["volkswagen_troc_20_tsi_190_carat_4motion_dsg7_1.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_2.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_3.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_4.jpg","volkswagen_troc_20_tsi_190_carat_4motion_dsg7_5.jpg"],
-                'price' => '27 990',
+                'price' => '27990',
                 'fiscal_power' => '11 CV',
                 'engine_power' => '(DIN) 190 ch - (moteur) 140 kW',
                 'euro_standard' => 'EURO6',
@@ -184,7 +184,7 @@ class AppFixtures extends Fixture
             'AUDI_S1' => [
                 'name' => 'AUDI S1 SPORTBACK 2.0 TFSI 231',
                 'images' => ["audi_s1_sportback_20_tfsi_231_1.jpg","audi_s1_sportback_20_tfsi_231_2.jpg","audi_s1_sportback_20_tfsi_231_3.jpg","audi_s1_sportback_20_tfsi_231_4.jpg","audi_s1_sportback_20_tfsi_231_5.jpg"],
-                'price' => '21 990',
+                'price' => '21990',
                 'fiscal_power' => '14 CV',
                 'engine_power' => '(DIN) 231 ch - (moteur) 170 kW',
                 'euro_standard' => 'EURO5',
@@ -228,7 +228,7 @@ class AppFixtures extends Fixture
             'PORSCHE_CAYENNE' => [
                 'name' => 'PORSCHE CAYENNE III COUPE 3.0 V6 340',
                 'images' => ["porsche_cayenne_iii_coupe_30_v6_340_1.jpg","porsche_cayenne_iii_coupe_30_v6_340_2.jpg","porsche_cayenne_iii_coupe_30_v6_340_3.jpg","porsche_cayenne_iii_coupe_30_v6_340_4.jpg","porsche_cayenne_iii_coupe_30_v6_340_5.jpg"],
-                'price' => '94 990',
+                'price' => '94990',
                 'fiscal_power' => '23 CV',
                 'engine_power' => '(DIN) 340 ch - (moteur) 250 kW',
                 'euro_standard' => 'EURO6',
@@ -271,7 +271,7 @@ class AppFixtures extends Fixture
             'NISSAN_QASHQAI' => [
                 'name' => 'NISSAN QASHQAI II 1.2 DIG-T 115 N-CONNECTA',
                 'images' => ["nissan_qashqai_ii_12_digt_115_nconnecta_2.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_3.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_4.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_1.jpg","nissan_qashqai_ii_12_digt_115_nconnecta_5.jpg"],
-                'price' => '14 490',
+                'price' => '14490',
                 'fiscal_power' => '6 CV',
                 'engine_power' => '(DIN) 116 ch - (moteur) 85 kW',
                 'euro_standard' => 'EURO6',
@@ -314,7 +314,7 @@ class AppFixtures extends Fixture
             'AUDI_Q3' => [
                 'name' => 'AUDI Q3 (2) 2.0 TDI 150 S LINE QUATTRO S TRONIC',
                 'images' => ["audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_1.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_2.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_3.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_4.jpg","audi_q3_2_20_tdi_150_s_line_quattro_s_tronic_5.jpg"],
-                'price' => '21 000',
+                'price' => '21000',
                 'fiscal_power' => '8 CV',
                 'engine_power' => '(DIN) 150 ch - (moteur) 110 kW',
                 'euro_standard' => 'EURO6',

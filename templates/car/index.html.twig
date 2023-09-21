@@ -4,59 +4,33 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Car index</h1>
+	<h1>{{ "Nos Voitures d'occasion" |upper }}</h1>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Images</th>
-				<th>Price</th>
-				<th>Fiscal_power</th>
-				<th>Engine_power</th>
-				<th>Euro_standard</th>
-				<th>Crit_air</th>
-				<th>Combined_consumption</th>
-				<th>Co2_emission</th>
-				<th>Posted_at</th>
-				<th>model</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for car in cars %}
-				<tr>
-					<td>{{ car.id }}</td>
-					<td>{{ car.name }}</td>
-					<td>{{ car.images ? car.images|json_encode : '' }}
-						<br>
-						{% for image in car.images %}
-							{# <span>{{ ['/Images/Vehicles',car.model.brand,image]|join('/')}}</span><br> #}
-							<img src="{{ ['/Images/Vehicles',car.model.brand,image]|join('/') }}" alt="{{image}}" width="200" height="200">
-						{% endfor %}
-					</td>
-					<td>{{ car.price }}</td>
-					<td>{{ car.fiscalPower }}</td>
-					<td>{{ car.enginePower }}</td>
-					<td>{{ car.euroStandard }}</td>
-					<td>{{ car.critAir }}</td>
-					<td>{{ car.combinedConsumption }}</td>
-					<td>{{ car.co2Emission }}</td>
-					<td>{{ car.postedAt ? car.postedAt|date('Y-m-d H:i:s') : '' }}</td>
-					<td>{{ car.model }}</td>
-					<td>
-						<a href="{{ path('app_car_show', {'id': car.id}) }}">show</a>
-						<a href="{{ path('app_car_edit', {'id': car.id}) }}">edit</a>
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="12">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-	<a href="{{ path('app_car_new') }}">Create new</a>
-{% endblock %}
+	<div class="row">
+		<div class="col-2 my-2">{% include "car/filter.html.twig" %}</div>
+		<div class="col-10" id="cars-container">
+			<div class=" row row-cols-1 row-cols-md-3 g-4">
+				{% for car in cars %}
+					<div class="col">
+						<div class="card h-100">
+							<img src={{ '/Images/Vehicles/'~car.model.brand~'/'~car.images[0:1]|join}} class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">{{car}}</h5>
+								<h4>{{ car.price ~ '€' }}</h4>
+							</div>
+							<div class="card-footer d-flex justify-content-between">
+								{% if is_granted('ROLE_EMPLOYE') %}
+									<a href="{{ path('app_car_edit', {'id': car.id })}}" class="btn btn-primary">Modifier</a>
+								{% endif %}
+								<a href="{{ path('app_car_show', {'id': car.id })}}" class="btn btn-primary">Détails</a>
+								<a href="{{ path('app_car_edit', {'id': car.id })}}" class="btn btn-primary">Contact</a>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<div class="alert alert-danger">no records found</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div></div><a href="{{ path('app_car_new') }}">Create new</a>{% endblock %}
